@@ -1645,7 +1645,7 @@ class Elasticsearch {
 				if ( isset( $call['class'] ) ) {
 					$call_type = $call['type'] ?? '???';
 					$path     .= " {$call['class']}{$call_type}{$call['function']}()";
-				} elseif ( in_array( $call['function'], array( 'do_action', 'apply_filters', 'do_action_ref_array' ) ) ) {
+				} elseif ( in_array( $call['function'], array( 'do_action', 'apply_filters', 'do_action_ref_array', 'apply_filters_ref_array' ) ) ) {
 					if ( is_object( $call['args'][0] ) && ! method_exists( $call['args'][0], '__toString' ) ) {
 						$path .= " {$call['function']}(Object)";
 					} elseif ( is_array( $call['args'][0] ) ) {
